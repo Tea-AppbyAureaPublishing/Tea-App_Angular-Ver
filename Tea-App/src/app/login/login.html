@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="welcome-header">
+    <h1>Bienvenido a Tea-App</h1>
+    <div class="logo-container">
+      <img src="/favicon.svg" alt="Logo Tea-App" class="logo-img">
+    </div>
+  </div>
+
+  <div class="login-card">
+    
+    <!-- VISTA 1: INICIAR SESIÓN -->
+    @if (currentView === 'login') {
+      <h2>Iniciar Sesión</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <label>Usuario o Correo electrónico</label>
+          <input type="text" formControlName="identifier" placeholder="Ej: usuario o correo@ejemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" formControlName="password" placeholder="••••••••">
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid" class="btn-amarillo">
+          Entrar
+        </button>
+      </form>
+
+      <a (click)="setView('forgot')" class="forgot-link" style="cursor: pointer;">¿Has olvidado la contraseña?</a>
+      <div class="divider"></div>
+      <a routerLink="/registro" class="register-link">Crear cuenta</a>
+    }
+
+    <!-- VISTA 2: RECUPERAR CONTRASEÑA -->
+    @if (currentView === 'forgot') {
+      <h2>Restablecer Contraseña</h2>
+      <p class="info-text">Introduce tu correo electrónico y te enviaremos un enlace para cambiar tu contraseña.</p>
+      
+      <form [formGroup]="forgotForm" (ngSubmit)="onResetPassword()">
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" formControlName="resetEmail" placeholder="ejemplo@correo.com">
+        </div>
+
+        <p class="success-text" *ngIf="successMessage">{{ successMessage }}</p>
+
+        <button type="submit" [disabled]="forgotForm.invalid" class="btn-amarillo">
+          Enviar enlace
+        </button>
+      </form>
+
+      <a (click)="setView('login')" class="forgot-link" style="cursor: pointer; display: block; margin-top: 15px;">
+        Volver al inicio de sesión
+      </a>
+    }
+
+  </div>
+</div>

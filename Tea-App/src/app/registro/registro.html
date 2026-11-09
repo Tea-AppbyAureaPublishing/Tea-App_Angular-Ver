@@ -1,0 +1,42 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Crear Cuenta</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" formControlName="name" placeholder="Tu nombre">
+      </div>
+
+      <div class="form-group">
+        <label>Nombre de usuario</label>
+        <input type="text" formControlName="username" placeholder="Tu usuario">
+      </div>
+
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" formControlName="email" placeholder="ejemplo@correo.com">
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" formControlName="password" placeholder="••••••••">
+      </div>
+
+      <div class="form-group">
+        <label>Repetir contraseña</label>
+        <input type="password" formControlName="confirmPassword" placeholder="••••••••">
+      </div>
+
+      <p class="error-text" *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched">
+        Las contraseñas no coinciden.
+      </p>
+
+      <button type="submit" [disabled]="registerForm.invalid" class="btn-amarillo">
+        Crear cuenta
+      </button>
+    </form>
+
+    <a routerLink="/login" class="forgot-link">¿Ya tienes cuenta? Inicia sesión</a>
+  </div>
+</div>

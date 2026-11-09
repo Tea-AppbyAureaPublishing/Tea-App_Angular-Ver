@@ -1,0 +1,137 @@
+/* Estilos globales y variables de tu paleta */
+:root {
+  --verde-oscuro: #2A3225;
+  --verde-bosque: #263D21;
+  --verde-oliva: #3C4929;
+  --verde-base: #485C43;
+  --verde-claro: #71896A;
+
+  --crema-tarjeta: #FFF8E1;
+
+  --amarillo-principal: #E0BB53;
+  --amarillo-medio: #E4AC26;
+  --amarillo-oscuro: #CB960F;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Contenedor de fondo compartido para Login y Registro */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  /* 1. Mantenemos tu color verde base de fondo */
+  background-color: var(--verde-base); 
+  
+  /* 2. Cargamos el patrón de tazas encima del verde */
+  background-image: url('/images/patron-tazas.svg'); 
+  
+  /* 3. Hacemos que se repita en mosaico por toda la pantalla */
+  background-repeat: repeat-x; 
+  
+  /* 4. Ajustamos el tamaño para que las tazas se vean sutiles y no gigantes */
+  background-size: 1000px; 
+  
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* La tarjeta crema oficial compartida */
+.login-card {
+  background-color: var(--crema-tarjeta);
+  padding: 35px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Alineación de formularios perfecta para ambas pantallas */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: var(--verde-oscuro);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--verde-oliva);
+  box-shadow: 0 0 4px rgba(60, 73, 41, 0.2);
+}
+
+/* Botón Amarillo Mostaza unificado */
+.btn-amarillo {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--amarillo-principal);
+  color: var(--verde-oscuro);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.btn-amarillo:hover:not(:disabled) {
+  background-color: var(--amarillo-medio);
+}
+
+.btn-amarillo:disabled {
+  background-color: #E2D3B8; /* Crema oscuro apagado */
+  color: #8C7B65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Enlaces inferiores */
+.forgot-link, .register-link {
+  color: var(--verde-bosque);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-link:hover, .register-link:hover {
+  text-decoration: underline;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 13px;
+  margin: 8px 0;
+  text-align: left;
+}
+

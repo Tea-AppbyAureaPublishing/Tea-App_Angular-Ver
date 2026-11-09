@@ -1,0 +1,26 @@
+<!-- Sección superior fija del perfil (Avatar, Nombre, etc.) -->
+<div class="user-header"> ... </div>
+
+<!-- Tus pestañas de navegación -->
+<div class="tabs-container">
+  <button routerLink="favoritos" routerLinkActive="active-tab">Favoritos</button>
+  <button routerLink="pedidos" routerLinkActive="active-tab">Pedidos</button>
+  <button routerLink="datos" routerLinkActive="active-tab">Mis Datos</button>
+</div>
+
+<!-- Tus pestañas de navegación -->
+<div class="tabs-container">
+  <button (click)="cambiarPestana('favoritos')">Favoritos</button>
+  <button (click)="cambiarPestana('pedidos')">Pedidos</button>
+</div>
+
+<!-- Contenido condicional -->
+@if (pestanaActiva === 'favoritos') {
+  <!-- Aquí va el diseño de tus tés favoritos -->
+  <div class="lista-tes"> ... </div>
+}
+
+@if (pestanaActiva === 'pedidos') {
+  <!-- Aquí va la lista de pedidos de la tercera pantalla -->
+  <div class="lista-pedidos"> ... </div>
+}
