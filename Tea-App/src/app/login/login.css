@@ -1,25 +1,29 @@
+/* src/app/login/login.css */
+
+/* Título de bienvenida superior fuera de la tarjeta */
 .welcome-header {
   text-align: center;
   margin-bottom: 24px;
 }
 
 .welcome-header h1 {
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 40px; 
+  line-height: 54px;
+  color: var(--crema-tarjeta);
+  margin: 0 0 16px 0;
 }
 
-/* Fondo verde oscuro para contrastar con la abuelita blanca */
+/* Círculo contenedor del avatar de la abuela (Icon de 167px) */
 .logo-container {
-  width: 100px;
+  width: 100px; /* Reducido levemente para equilibrar con la nueva tarjeta compacta */
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 15px;
-  
+  padding: 16px;
 }
 
 .logo-img {
@@ -29,25 +33,37 @@
   display: block;
 }
 
+/* Título interno (Iniciar Sesión) */
+.login-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 48px;
+  color: var(--verde-oscuro);
+  margin: 0 0 4px 0;
+}
+
+.forgot-link {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.register-link {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 700; 
+}
+
 .divider {
+  width: 100%;
   height: 1px;
-  background-color: #e0e0e0;
-  margin: 20px 0;
+  background-color: rgba(59, 73, 40, 0.2);
+  margin: 12px 0;
 }
 
 .info-text {
   font-size: 14px;
   color: #555555;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   line-height: 1.4;
 }
-
-.success-text {
-  color: #2e7d32;
-  font-size: 13px;
-  margin-top: 10px;
-  background-color: #e8f5e9;
-  padding: 10px;
-  border-radius: 6px;
-}
-

@@ -1,4 +1,6 @@
+<!-- src/app/login/login.html -->
 <div class="login-container">
+  
   <div class="welcome-header">
     <h1>Bienvenido a Tea-App</h1>
     <div class="logo-container">
@@ -8,10 +10,11 @@
 
   <div class="login-card">
     
-    <!-- VISTA 1: INICIAR SESIÓN -->
+    <!-- VISTA 1: ACCESO -->
     @if (currentView === 'login') {
       <h2>Iniciar Sesión</h2>
-      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-container">
         <div class="form-group">
           <label>Usuario o Correo electrónico</label>
           <input type="text" formControlName="identifier" placeholder="Ej: usuario o correo@ejemplo.com">
@@ -22,35 +25,37 @@
           <input type="password" formControlName="password" placeholder="••••••••">
         </div>
 
-        <button type="submit" [disabled]="loginForm.invalid" class="btn-amarillo">
-          Entrar
-        </button>
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 5px;">
+          <button type="submit" [disabled]="loginForm.invalid" class="btn-amarillo">
+            Entrar
+          </button>
+        </div>
       </form>
 
-      <a (click)="setView('forgot')" class="forgot-link" style="cursor: pointer;">¿Has olvidado la contraseña?</a>
+      <a (click)="setView('forgot')" class="forgot-link">¿Has olvidado la contraseña?</a>
       <div class="divider"></div>
       <a routerLink="/registro" class="register-link">Crear cuenta</a>
     }
 
-    <!-- VISTA 2: RECUPERAR CONTRASEÑA -->
+    <!-- VISTA 2: RECUPERACIÓN -->
     @if (currentView === 'forgot') {
       <h2>Restablecer Contraseña</h2>
-      <p class="info-text">Introduce tu correo electrónico y te enviaremos un enlace para cambiar tu contraseña.</p>
+      <p class="info-text">Introduce tu correo electrónico y te enviaremos un enlace de recuperación.</p>
       
-      <form [formGroup]="forgotForm" (ngSubmit)="onResetPassword()">
+      <form [formGroup]="forgotForm" (ngSubmit)="onResetPassword()" class="form-container">
         <div class="form-group">
           <label>Correo electrónico</label>
           <input type="email" formControlName="resetEmail" placeholder="ejemplo@correo.com">
         </div>
 
-        <p class="success-text" *ngIf="successMessage">{{ successMessage }}</p>
-
-        <button type="submit" [disabled]="forgotForm.invalid" class="btn-amarillo">
-          Enviar enlace
-        </button>
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 5px;">
+          <button type="submit" [disabled]="forgotForm.invalid" class="btn-amarillo">
+            Enviar enlace
+          </button>
+        </div>
       </form>
 
-      <a (click)="setView('login')" class="forgot-link" style="cursor: pointer; display: block; margin-top: 15px;">
+      <a (click)="setView('login')" class="forgot-link" style="margin-top: 10px; display: block;">
         Volver al inicio de sesión
       </a>
     }
