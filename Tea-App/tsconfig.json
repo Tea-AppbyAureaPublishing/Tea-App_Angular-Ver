@@ -3,6 +3,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -24,5 +26,7 @@
     {
       "path": "./tsconfig.app.json"
     }
-  ]
+  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
