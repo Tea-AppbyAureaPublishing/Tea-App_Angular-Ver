@@ -1,5 +1,24 @@
-.forgot-link {
-  display: inline-block;
-  margin-top: 20px;
+/* registro.css */
+@import '../login/login.css';
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra el botón */
+  gap: 16px;
 }
 
+.form-container .form-group {
+  align-items: stretch;
+}
+
+.form-container .btn-amarillo {
+  width: 50%;
+  margin-top: 8px;
+}
+
+/* El line-height: 5px de login.css aplasta el texto al envolverse; mejor así */
+.forgot-link, .register-link {
+  font-size: 12px;
+  line-height: 1.4;
+}

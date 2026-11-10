@@ -28,21 +28,22 @@ html, body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  
+
   /* 1. Tu color verde base oficial de fondo */
-  background-color: var(--verde-base); 
-  
+  background-color: var(--verde-base);
+
   /* 2. 🪄 FUSIÓN DE COLOR DE FIGMA: La taza se coloca al frente y el color crema al 15% (rgba) se funde detrás */
-  background-image: url('/images/taza.svg'); 
-  
+  background-image: url('/images/taza.svg');
+
   /* 3. 🧪 MODO DE MEZCLA DE COLOR: Fuerza al trazo a adoptar la transparencia crema sobre el verde */
   background-blend-mode: color-dodge;
-  
+
   /* 4. Mapeamos la repetición en mosaico infinito (X e Y) */
   background-repeat: repeat;
-  
-  /* 5. Ajustamos el tamaño exacto de 98px de tu cuadrícula de Figma */
-  background-size: 80px 80px;  
+  background-repeat: space;
+
+  /* 5. Ajustamos el tamaño exacto de 50px de tu cuadrícula de Figma */
+  background-size: 50px 50px;
 
   padding: 20px;
   box-sizing: border-box;
@@ -51,14 +52,14 @@ html, body {
 /* Tarjeta de Entrada con TAMAÑO MÁS COMPACTO E IDEAL (420px) */
 .login-card {
   background-color: var(--crema-tarjeta);
-  border-radius: 40px; 
-  padding: 40px 30px; 
+  border-radius: 40px;
+  padding: 40px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px; 
+  gap: 24px;
   width: 100%;
-  max-width: 420px; /* Reducido a tamaño intermedio perfecto, estilizado y compacto */
+  max-width: 700px; /* Reducido a tamaño intermedio perfecto, estilizado y compacto */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
 }
@@ -81,7 +82,7 @@ html, body {
 .form-group label {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 20px;
   color: #000000;
   text-align: left;
@@ -90,7 +91,7 @@ html, body {
 /* Cuadros de entrada de texto (Rectangle 18 y 19) */
 .form-group input {
   width: 100%;
-  height: 44px; 
+  height: 44px;
   border: 1px solid var(--border-input);
   border-radius: 10px;
   padding: 0 14px;
@@ -108,15 +109,14 @@ html, body {
 
 /* Botón de Entrada Amarillo Mostaza adaptado al nuevo ancho */
 .btn-amarillo {
-  width: 100%;
-  height: 52px;     
+  width: 50%;
+  height: 48px;
   background-color: var(--amarillo-boton);
   border-radius: 10px;
   border: none;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 26px;
+  font-weight: bold;
+  font-size: 16px;
   color: var(--verde-oscuro); /* Texto oscuro obligatorio para contraste accesible WCAG AAA */
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -133,6 +133,7 @@ html, body {
   cursor: not-allowed;
   box-shadow: none;
 }
+
 
 /* Enlaces generales */
 .forgot-link, .register-link {
