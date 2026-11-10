@@ -1,6 +1,5 @@
-<!-- src/app/login/login.html -->
 <div class="login-container">
-  
+
   <div class="welcome-header">
     <h1>Bienvenido a Tea-App</h1>
     <div class="logo-container">
@@ -9,11 +8,11 @@
   </div>
 
   <div class="login-card">
-    
+
     <!-- VISTA 1: ACCESO -->
     @if (currentView === 'login') {
       <h2>Iniciar Sesión</h2>
-      
+
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-container">
         <div class="form-group">
           <label>Usuario o Correo electrónico</label>
@@ -33,7 +32,6 @@
       </form>
 
       <a (click)="setView('forgot')" class="forgot-link">¿Has olvidado la contraseña?</a>
-      <div class="divider"></div>
       <a routerLink="/registro" class="register-link">Crear cuenta</a>
     }
 
@@ -41,7 +39,7 @@
     @if (currentView === 'forgot') {
       <h2>Restablecer Contraseña</h2>
       <p class="info-text">Introduce tu correo electrónico y te enviaremos un enlace de recuperación.</p>
-      
+
       <form [formGroup]="forgotForm" (ngSubmit)="onResetPassword()" class="form-container">
         <div class="form-group">
           <label>Correo electrónico</label>

@@ -1,31 +1,40 @@
 <div class="login-container">
+
+  <div class="welcome-header">
+    <h1>Bienvenido a Tea-App</h1>
+    <div class="logo-container">
+      <!-- Ajusta la ruta a la de tu logo -->
+      <img class="logo-img" src="/favicon.svg" alt="Tea-App">
+    </div>
+  </div>
+
   <div class="login-card">
     <h2>Crear Cuenta</h2>
 
-    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <form class="form-container" [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" formControlName="name" placeholder="Tu nombre">
+        <label for="name">Nombre</label>
+        <input id="name" type="text" formControlName="name" placeholder="Tu nombre">
       </div>
 
       <div class="form-group">
-        <label>Nombre de usuario</label>
-        <input type="text" formControlName="username" placeholder="Tu usuario">
+        <label for="username">Nombre de usuario</label>
+        <input id="username" type="text" formControlName="username" placeholder="Tu usuario">
       </div>
 
       <div class="form-group">
-        <label>Correo electrónico</label>
-        <input type="email" formControlName="email" placeholder="ejemplo@correo.com">
+        <label for="email">Correo electrónico</label>
+        <input id="email" type="email" formControlName="email" placeholder="ejemplo@correo.com">
       </div>
 
       <div class="form-group">
-        <label>Contraseña</label>
-        <input type="password" formControlName="password" placeholder="••••••••">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" formControlName="password" placeholder="••••••••">
       </div>
 
       <div class="form-group">
-        <label>Repetir contraseña</label>
-        <input type="password" formControlName="confirmPassword" placeholder="••••••••">
+        <label for="confirmPassword">Repetir contraseña</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="••••••••">
       </div>
 
       <p class="error-text" *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched">
@@ -37,6 +46,7 @@
       </button>
     </form>
 
-    <a routerLink="/login" class="forgot-link">¿Ya tienes cuenta? Inicia sesión</a>
+    <a routerLink="/login" class="register-link">¿Ya tienes cuenta? Inicia sesión</a>
   </div>
+
 </div>
