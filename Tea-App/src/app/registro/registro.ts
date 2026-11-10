@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +16,7 @@ export class Registro {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.registerForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],   // <- faltaba
       username: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -23,19 +24,15 @@ export class Registro {
     }, { validators: this.passwordMatchValidator });
   }
 
-  // Validador personalizado para comprobar que las contraseñas coinciden
-  passwordMatchValidator(g: FormGroup) {
-    return g.get('password')?.value === g.get('confirmPassword')?.value
-      ? null : { 'mismatch': true };
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    return control.get('password')?.value === control.get('confirmPassword')?.value
+      ? null : { mismatch: true };
   }
 
   onRegister() {
     if (this.registerForm.valid) {
       console.log('Usuario registrado:', this.registerForm.value);
-      // Redirige a iniciar sesión tras crear la cuenta
       this.router.navigate(['/login']);
-    } else {
-      this.errorMessage = 'Por favor, asegúrate de que todos los campos son válidos y las contraseñas coinciden.';
     }
   }
 }
