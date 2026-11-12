@@ -36,7 +36,7 @@ export class Login {
     if (this.loginForm.valid) {
       const { identifier, password } = this.loginForm.value;
       console.log('Intentando entrar con:', identifier);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/perfil']);
     }
   }
 
