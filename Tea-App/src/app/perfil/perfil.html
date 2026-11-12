@@ -1,26 +1,61 @@
-<!-- Sección superior fija del perfil (Avatar, Nombre, etc.) -->
-<div class="user-header"> ... </div>
+<div class="perfil-container">
+  <h1>Mi perfil</h1>
 
-<!-- Tus pestañas de navegación -->
-<div class="tabs-container">
-  <button routerLink="favoritos" routerLinkActive="active-tab">Favoritos</button>
-  <button routerLink="pedidos" routerLinkActive="active-tab">Pedidos</button>
-  <button routerLink="datos" routerLinkActive="active-tab">Mis Datos</button>
+  <!-- Tarjeta principal del usuario -->
+  <div class="user-card">
+    <div class="logo-container">
+      <img src="/favicon.svg" alt="Logo Tea-App" class="logo-img">
+    </div>
+    <div class="user-info">
+      <p class="user-name">{{ user.nombre }}</p>
+      <p class="user-email">{{ user.email }}</p>
+      <button class="btn-edit" (click)="openEditModal()">Editar perfil</button>
+    </div>
+  </div>
+
+  <!-- Botón de Cerrar Sesión -->
+  <div class="logout-container">
+    <button class="btn-logout" (click)="openLogoutModal()">Cerrar sesión</button>
+  </div>
 </div>
 
-<!-- Tus pestañas de navegación -->
-<div class="tabs-container">
-  <button (click)="cambiarPestana('favoritos')">Favoritos</button>
-  <button (click)="cambiarPestana('pedidos')">Pedidos</button>
+<!-- MODAL: Editar Perfil (TEA-76) -->
+<div class="modal-backdrop" *ngIf="isEditing">
+  <div class="modal-box">
+    <h2>Añadir o editar</h2>
+    <form (ngSubmit)="saveProfile()">
+      <div class="form-group">
+        <label>Nombre de usuario</label>
+        <input type="text" [(ngModel)]="editForm.nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" [(ngModel)]="editForm.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="editForm.password" name="password">
+      </div>
+      <div class="form-group">
+        <label>Repetir contraseña</label>
+        <input type="password" [(ngModel)]="editForm.confirmPassword" name="confirmPassword">
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="closeEditModal()">Cancelar</button>
+        <button type="submit" class="btn-confirm">Confirmar</button>
+      </div>
+    </form>
+  </div>
 </div>
 
-<!-- Contenido condicional -->
-@if (pestanaActiva === 'favoritos') {
-  <!-- Aquí va el diseño de tus tés favoritos -->
-  <div class="lista-tes"> ... </div>
-}
-
-@if (pestanaActiva === 'pedidos') {
-  <!-- Aquí va la lista de pedidos de la tercera pantalla -->
-  <div class="lista-pedidos"> ... </div>
-}
+<!-- MODAL: Confirmar Cierre de Sesión (TEA-76) -->
+<div class="modal-backdrop" *ngIf="showLogoutModal">
+  <div class="modal-box confirm-box">
+    <h3>¿Estás seguro de que deseas cerrar sesión?</h3>
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="cancelLogout()">Cancelar</button>
+      <button class="btn-confirm" (click)="confirmLogout()">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
