@@ -92,7 +92,7 @@ html, body {
 .form-group input {
   width: 100%;
   height: 44px;
-  border: 1px solid var(--border-input);
+  border: 1px solid var(--verde-claro); /* Usamos el verde claro definido en el root */
   border-radius: 10px;
   padding: 0 14px;
   font-family: 'Poppins', sans-serif;
@@ -101,23 +101,17 @@ html, body {
   box-sizing: border-box;
 }
 
-.form-group input:focus {
-  outline: none;
-  border-width: 2px;
-  border-color: var(--verde-oscuro);
-}
-
-/* Botón de Entrada Amarillo Mostaza adaptado al nuevo ancho */
+/* Botón de Entrada Amarillo Mostaza */
 .btn-amarillo {
   width: 50%;
   height: 48px;
-  background-color: var(--amarillo-boton);
+  background-color: var(--amarillo-principal); /* Usamos tu variable de amarillo principal */
   border-radius: 10px;
   border: none;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 16px;
-  color: var(--verde-oscuro); /* Texto oscuro obligatorio para contraste accesible WCAG AAA */
+  color: var(--verde-oscuro); 
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s, transform 0.1s;
@@ -138,7 +132,7 @@ html, body {
 /* Enlaces generales */
 .forgot-link, .register-link {
   font-family: 'Poppins', sans-serif;
-  color: var(--texto-enlaces);
+  color: var(--verde-oscuro); /* Asignamos el verde oscuro para que los enlaces destaquen bien sobre el fondo crema */
   text-decoration: none;
   cursor: pointer;
 }

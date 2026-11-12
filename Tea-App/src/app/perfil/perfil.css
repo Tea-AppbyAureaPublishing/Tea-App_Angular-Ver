@@ -1,0 +1,294 @@
+.perfil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--verde-base); /* Color verde corporativo asegurado */
+  font-family: 'Poppins', sans-serif;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  color: #ffffff;
+
+  
+  /* 1. Tu color verde base oficial de fondo */
+  background-color: var(--verde-base);
+
+  /* 2. 🪄 FUSIÓN DE COLOR DE FIGMA: La taza se coloca al frente y el color crema al 15% (rgba) se funde detrás */
+  background-image: url('/images/taza.svg');
+
+  /* 3. 🧪 MODO DE MEZCLA DE COLOR: Fuerza al trazo a adoptar la transparencia crema sobre el verde */
+  background-blend-mode: color-dodge;
+
+  /* 4. Mapeamos la repetición en mosaico infinito (X e Y) */
+  background-repeat: repeat;
+  background-repeat: space;
+
+  /* 5. Ajustamos el tamaño exacto de 50px de tu cuadrícula de Figma */
+  background-size: 50px 50px;
+}
+
+.perfil-container h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Tarjeta principal del usuario */
+.user-card {
+  background-color: var(--crema-tarjeta);
+  color: var(--verde-oscuro);
+  padding: 30px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* Círculo contenedor del avatar de la abuela (Icon de 167px) */
+.logo-container {
+  width: 100px; /* Reducido levemente para equilibrar con la nueva tarjeta compacta */
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: rgb(from var(--verde-oscuro) r g b / 0.75);
+
+  border-radius: 50%;
+
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.user-info {
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: var(--verde-oscuro);
+}
+
+.user-email {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #555555;
+  margin-bottom: 16px;
+}
+
+.btn-edit {
+  background-color: var(--verde-oscuro);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-edit:hover {
+  background-color: var(--verde-bosque);
+}
+
+/* Pestañas de navegación interna */
+.tabs-container {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  background-color: var(--verde-oliva);
+  color: #ffffff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  flex: 1;
+  transition: background-color 0.2s, font-weight 0.2s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background-color: var(--amarillo-principal);
+  color: var(--verde-oscuro);
+  font-weight: bold;
+}
+
+/* Contenido de las pestañas */
+.tab-content {
+  background-color: var(--crema-tarjeta);
+  color: var(--verde-oscuro);
+  width: 100%;
+  max-width: 650px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  min-height: 150px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.pedido-item {
+  background-color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--verde-claro);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sección de Cerrar Sesión */
+.logout-container {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-logout {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: #c9302c;
+}
+
+/* Modales (Editar perfil y Confirmar cierre de sesión) */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-box {
+  background-color: var(--crema-tarjeta);
+  color: var(--verde-oscuro);
+  padding: 35px 30px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.modal-box h2, .modal-box h3 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--verde-oscuro);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.form-group label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--verde-oscuro);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-width: 2px;
+  border-color: var(--verde-oscuro);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-cancel {
+  background-color: #d0d7cd;
+  color: #333333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-confirm {
+  background-color: var(--amarillo-principal);
+  color: var(--verde-oscuro);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cancel:hover { background-color: #b3b3b3; }
+.btn-confirm:hover { background-color: var(--amarillo-medio); }
