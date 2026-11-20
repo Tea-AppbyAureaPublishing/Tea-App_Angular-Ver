@@ -13,6 +13,16 @@
     </div>
   </div>
 
+  <!-- Pestañas: cada una es un enlace a una ruta hija -->
+  <div class="tabs-container">
+    <a routerLink="/perfil/favoritos" routerLinkActive="active" class="tab-btn">Tés favoritos</a>
+    <a routerLink="/perfil/propios" routerLinkActive="active" class="tab-btn">Tés propios</a>
+    <a routerLink="/perfil/pedidos" routerLinkActive="active" class="tab-btn">Pedidos</a>
+  </div>
+
+  <!-- Aquí aparece el contenido de la pestaña elegida -->
+  <router-outlet></router-outlet>
+
   <!-- Botón de Cerrar Sesión -->
   <div class="logout-container">
     <button class="btn-logout" (click)="openLogoutModal()">Cerrar sesión</button>
@@ -26,19 +36,19 @@
     <form (ngSubmit)="saveProfile()">
       <div class="form-group">
         <label>Nombre de usuario</label>
-        <input type="text" [(ngModel)]="editForm.nombre" name="nombre" required>
+        <input type="text" [(ngModel)]="editForm.nombre" name="nombre" required placeholder="Nombre de usuario">
       </div>
       <div class="form-group">
         <label>Correo electrónico</label>
-        <input type="email" [(ngModel)]="editForm.email" name="email" required>
+        <input type="email" [(ngModel)]="editForm.email" name="email" required placeholder="Correo electrónico">
       </div>
       <div class="form-group">
         <label>Contraseña</label>
-        <input type="password" [(ngModel)]="editForm.password" name="password">
+        <input type="password" [(ngModel)]="editForm.password" name="password" required placeholder="Nueva contraseña">
       </div>
       <div class="form-group">
         <label>Repetir contraseña</label>
-        <input type="password" [(ngModel)]="editForm.confirmPassword" name="confirmPassword">
+        <input type="password" [(ngModel)]="editForm.confirmPassword" name="confirmPassword" required placeholder="Repite la contraseña">
       </div>
 
       <div class="modal-actions">

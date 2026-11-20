@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './perfil.html',
   styleUrl: './perfil.css'
 })
 export class Perfil {
-  // Pestaña activa ('favoritos' | 'propios' | 'pedidos')
-  activeTab: string = 'favoritos';
-
   // Datos del usuario (simulados por ahora)
   user = {
     nombre: 'Nombre de usuario',
@@ -71,7 +68,6 @@ export class Perfil {
 
   confirmLogout(): void {
     this.showLogoutModal = false;
-    // Redirige al login o a la página de inicio
     this.router.navigate(['/login']);
   }
 }
