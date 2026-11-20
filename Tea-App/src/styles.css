@@ -10,6 +10,8 @@
   --amarillo-principal: #E0BB53;
   --amarillo-medio: #E4AC26;
   --amarillo-oscuro: #CB960F;
+
+  --navbar-height: 96px;
 }
 
 html, body {
@@ -146,4 +148,45 @@ html, body {
   font-size: 13px;
   margin: 4px 0;
   text-align: left;
+}
+
+/* ===== Páginas con barra de navegación (inicio, infusiones, tés...) ===== */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height)); /* resta la barra para que no haya scroll de más */
+  padding: 30px 20px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+
+  /* Mismo fondo de tazas que el perfil */
+  background-color: var(--verde-base);
+  background-image: url('/images/taza.svg');
+  background-blend-mode: color-dodge;
+  background-repeat: space;
+  background-size: 50px 50px;
+}
+
+.page-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: var(--crema-tarjeta);
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+/* Tarjeta crema reutilizable */
+.page-card {
+  background-color: var(--crema-tarjeta);
+  color: var(--verde-oscuro);
+  width: 100%;
+  max-width: 650px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
 }

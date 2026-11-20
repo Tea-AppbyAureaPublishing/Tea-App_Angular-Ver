@@ -1,0 +1,74 @@
+.navbar {
+  height: var(--navbar-height);
+  background-color: var(--verde-base);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--crema-tarjeta);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--crema-tarjeta);
+}
+
+.nav-icon {
+  height: 52px;
+  width: auto;
+}
+
+.nav-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+}
+
+.profile-img {
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: var(--crema-tarjeta);
+  border: 5px solid var(--verde-oscuro);
+  object-fit: contain;
+}
