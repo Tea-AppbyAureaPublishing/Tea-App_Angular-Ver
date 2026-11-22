@@ -6,7 +6,11 @@
   justify-content: space-between;
   padding: 0 40px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
+
+/* Marca */
 
 .brand {
   display: flex;
@@ -14,7 +18,7 @@
   gap: 14px;
 }
 
-.brand-logo {
+.logo {
   width: 56px;
   height: 56px;
   object-fit: contain;
@@ -22,51 +26,136 @@
 
 .brand-title {
   font-family: 'Playfair Display', serif;
-  font-weight: 600;
   font-size: 40px;
-  line-height: 1;
+  font-weight: 600;
   color: var(--crema-tarjeta);
 }
 
+/* Navegación */
+
 .nav-links {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 28px;
+  isolation: isolate;
 }
 
+/* Burbuja compartida */
+.nav-indicator {
+  position: absolute;
+  top: 8px;
+  left: 45px;
+
+  width: 72px;
+  height: 96px;
+
+  border-radius: 0 0 38px 38px;
+  background-color: var(--verde-base);
+
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+
+  /* El centro de la burbuja coincide con el centro del icono */
+  transform: translateX(-50%);
+
+  transition:
+    left 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+}
+
+/* Inicio */
+.nav-links:has(.nav-item:nth-of-type(1).active) .nav-indicator {
+  left: 45px;
+  opacity: 1;
+}
+
+/* Infusiones */
+.nav-links:has(.nav-item:nth-of-type(2).active) .nav-indicator {
+  left: 163px;
+  opacity: 1;
+}
+
+/* Tés */
+.nav-links:has(.nav-item:nth-of-type(3).active) .nav-indicator {
+  left: 281px;
+  opacity: 1;
+}
+
+/* Enlaces */
+
 .nav-item {
+  width: 90px;
+  min-height: 96px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2px;
   text-decoration: none;
   color: var(--crema-tarjeta);
+  position: relative;
+  z-index: 1;
 }
 
-.nav-icon {
-  height: 52px;
-  width: auto;
-}
+/* Espacio de los iconos */
 
-.nav-label {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 22px;
-}
-
-.nav-profile {
+.nav-icon-container {
+  width: 64px;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 4px;
+}
+
+/* Iconos */
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+
+  filter: brightness(0) saturate(100%) invert(96%) sepia(12%) saturate(500%) hue-rotate(5deg)
+    brightness(103%);
+
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+/* Icono seleccionado */
+
+.nav-item.active .nav-icon {
+  transform: scale(1.2);
+}
+
+/* Texto */
+
+.nav-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--crema-tarjeta);
+  white-space: nowrap;
+}
+
+/* Perfil independiente */
+
+.nav-profile {
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .profile-img {
   width: 52px;
   height: 52px;
-  box-sizing: border-box;
   padding: 6px;
+  box-sizing: border-box;
   border-radius: 50%;
   background-color: var(--crema-tarjeta);
   border: 5px solid var(--verde-oscuro);

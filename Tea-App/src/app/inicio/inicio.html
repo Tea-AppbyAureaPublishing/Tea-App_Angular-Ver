@@ -1,6 +1,165 @@
-<div class="page-container">
-  <h1>Inicio</h1>
-  <div class="page-card">
-    <p>Aquí irá el contenido de inicio.</p>
-  </div>
-</div>
+<main class="page-container home-page">
+  <section class="home-content" aria-labelledby="home-title">
+    <h1 id="home-title" class="home-title">Descubre Tu Té Ideal</h1>
+
+    <article class="home-card" aria-labelledby="benefits-title">
+      <div class="home-card__illustration" aria-hidden="true">
+        <img src="/images/benefits.svg" alt="">
+      </div>
+
+      <div class="home-card__copy">
+        <h2 id="benefits-title">Beneficios Salud</h2>
+        <p>Conoce las propiedades<br class="desktop-break"> y beneficios de los tés</p>
+      </div>
+
+      <ul class="tag-list" aria-label="Beneficios">
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Estado de ánimo')"
+            [attr.aria-pressed]="isBenefitSelected('Estado de ánimo')" (click)="toggleBenefit('Estado de ánimo')">
+            Estado de ánimo
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Fatiga Mental')"
+            [attr.aria-pressed]="isBenefitSelected('Fatiga Mental')" (click)="toggleBenefit('Fatiga Mental')">
+            Fatiga Mental
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Sistema Digestivo')"
+            [attr.aria-pressed]="isBenefitSelected('Sistema Digestivo')" (click)="toggleBenefit('Sistema Digestivo')">
+            Sistema Digestivo
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Detox')"
+            [attr.aria-pressed]="isBenefitSelected('Detox')" (click)="toggleBenefit('Detox')">
+            Detox
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Antioxidante')"
+            [attr.aria-pressed]="isBenefitSelected('Antioxidante')" (click)="toggleBenefit('Antioxidante')">
+            Antioxidante
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Control de Peso')"
+            [attr.aria-pressed]="isBenefitSelected('Control de Peso')" (click)="toggleBenefit('Control de Peso')">
+            Control de Peso
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Circulación')"
+            [attr.aria-pressed]="isBenefitSelected('Circulación')" (click)="toggleBenefit('Circulación')">
+            Circulación
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Energía')"
+            [attr.aria-pressed]="isBenefitSelected('Energía')" (click)="toggleBenefit('Energía')">
+            Energía
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Congestión y Resfriado')"
+            [attr.aria-pressed]="isBenefitSelected('Congestión y Resfriado')"
+            (click)="toggleBenefit('Congestión y Resfriado')">
+            Congestión y Resfriado
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Inflamación Articular')"
+            [attr.aria-pressed]="isBenefitSelected('Inflamación Articular')"
+            (click)="toggleBenefit('Inflamación Articular')">
+            Inflamación Articular
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isBenefitSelected('Sistema Inmune')"
+            [attr.aria-pressed]="isBenefitSelected('Sistema Inmune')" (click)="toggleBenefit('Sistema Inmune')">
+            Sistema Inmune
+          </button>
+        </li>
+      </ul>
+    </article>
+
+    <article class="home-card" aria-labelledby="tasting-title">
+      <div class="home-card__illustration" aria-hidden="true">
+        <img src="/images/teasting.svg" alt="">
+      </div>
+
+      <div class="home-card__copy">
+        <h2 id="tasting-title">Notas de Cata</h2>
+        <p>Conoce los sabores y<br class="desktop-break"> gustos de los tés</p>
+      </div>
+
+      <ul class="tag-list" aria-label="Notas de cata">
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Herbal y Floral')"
+            [attr.aria-pressed]="isTastingSelected('Herbal y Floral')" (click)="toggleTasting('Herbal y Floral')">
+            Herbal y Floral
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Dulce')"
+            [attr.aria-pressed]="isTastingSelected('Dulce')" (click)="toggleTasting('Dulce')">
+            Dulce
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Afrutado')"
+            [attr.aria-pressed]="isTastingSelected('Afrutado')" (click)="toggleTasting('Afrutado')">
+            Afrutado
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Frutos Secos')"
+            [attr.aria-pressed]="isTastingSelected('Frutos Secos')" (click)="toggleTasting('Frutos Secos')">
+            Frutos Secos
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Fresco')"
+            [attr.aria-pressed]="isTastingSelected('Fresco')" (click)="toggleTasting('Fresco')">
+            Fresco
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Umami y Marino')"
+            [attr.aria-pressed]="isTastingSelected('Umami y Marino')" (click)="toggleTasting('Umami y Marino')">
+            Umami y Marino
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Lácteo')"
+            [attr.aria-pressed]="isTastingSelected('Lácteo')" (click)="toggleTasting('Lácteo')">
+            Lácteo
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Terroso')"
+            [attr.aria-pressed]="isTastingSelected('Terroso')" (click)="toggleTasting('Terroso')">
+            Terroso
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Robusto')"
+            [attr.aria-pressed]="isTastingSelected('Robusto')" (click)="toggleTasting('Robusto')">
+            Robusto
+          </button>
+        </li>
+        <li>
+          <button type="button" class="tag-button" [class.selected]="isTastingSelected('Madera')"
+            [attr.aria-pressed]="isTastingSelected('Madera')" (click)="toggleTasting('Madera')">
+            Madera
+          </button>
+        </li>
+      </ul>
+    </article>
+
+    <button class="home-search-button" type="button">
+      Buscar
+    </button>
+  </section>
+</main>

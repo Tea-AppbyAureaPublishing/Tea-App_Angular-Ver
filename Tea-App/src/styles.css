@@ -1,29 +1,37 @@
 :root {
-  --verde-oscuro: #2A3225;
-  --verde-bosque: #263D21;
-  --verde-oliva: #3C4929;
-  --verde-base: #485C43;
-  --verde-claro: #71896A;
+  --verde-oscuro: #2a3225;
+  --verde-bosque: #263d21;
+  --verde-oliva: #3c4929;
+  --verde-base: #485c43;
+  --verde-claro: #71896a;
 
-  --crema-tarjeta: #FFF8E1;
+  --crema-tarjeta: #fff8e1;
 
-  --amarillo-principal: #E0BB53;
-  --amarillo-medio: #E4AC26;
-  --amarillo-oscuro: #CB960F;
+  --amarillo-principal: #e0bb53;
+  --amarillo-medio: #e4ac26;
+  --amarillo-oscuro: #cb960f;
 
   --navbar-height: 96px;
 }
 
-html, body {
+/* Configuración global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  min-height: 100%;
   font-family: 'Poppins', sans-serif;
+  background-color: var(--verde-claro);
 }
 
-/* Contenedor principal flexible */
+/* Contenedor principal de Login */
 .login-container {
   display: flex;
   flex-direction: column;
@@ -31,27 +39,16 @@ html, body {
   align-items: center;
   min-height: 100vh;
 
-  /* 1. Tu color verde base oficial de fondo */
-  background-color: var(--verde-base);
-
-  /* 2. 🪄 FUSIÓN DE COLOR DE FIGMA: La taza se coloca al frente y el color crema al 15% (rgba) se funde detrás */
+  background-color: var(--verde-claro);
   background-image: url('/images/taza.svg');
-
-  /* 3. 🧪 MODO DE MEZCLA DE COLOR: Fuerza al trazo a adoptar la transparencia crema sobre el verde */
   background-blend-mode: color-dodge;
-
-  /* 4. Mapeamos la repetición en mosaico infinito (X e Y) */
-  background-repeat: repeat;
   background-repeat: space;
-
-  /* 5. Ajustamos el tamaño exacto de 50px de tu cuadrícula de Figma */
   background-size: 50px 50px;
 
   padding: 20px;
-  box-sizing: border-box;
 }
 
-/* Tarjeta de Entrada con TAMAÑO MÁS COMPACTO E IDEAL (420px) */
+/* Tarjeta de entrada */
 .login-card {
   background-color: var(--crema-tarjeta);
   border-radius: 40px;
@@ -61,12 +58,11 @@ html, body {
   align-items: center;
   gap: 24px;
   width: 100%;
-  max-width: 700px; /* Reducido a tamaño intermedio perfecto, estilizado y compacto */
+  max-width: 700px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
 }
 
-/* Contenedor alineado para los inputs */
+/* Contenedor de formularios */
 .form-container {
   width: 100%;
   display: flex;
@@ -90,33 +86,34 @@ html, body {
   text-align: left;
 }
 
-/* Cuadros de entrada de texto (Rectangle 18 y 19) */
+/* Campos de entrada */
 .form-group input {
   width: 100%;
   height: 44px;
-  border: 1px solid var(--verde-claro); /* Usamos el verde claro definido en el root */
+  border: 1px solid var(--verde-claro);
   border-radius: 10px;
   padding: 0 14px;
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   background-color: #ffffff;
-  box-sizing: border-box;
 }
 
-/* Botón de Entrada Amarillo Mostaza */
+/* Botón amarillo */
 .btn-amarillo {
   width: 50%;
   height: 48px;
-  background-color: var(--amarillo-principal); /* Usamos tu variable de amarillo principal */
+  background-color: var(--amarillo-principal);
   border-radius: 10px;
   border: none;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 16px;
-  color: var(--verde-oscuro); 
+  color: var(--verde-oscuro);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s, transform 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
 
 .btn-amarillo:hover:not(:disabled) {
@@ -124,22 +121,23 @@ html, body {
 }
 
 .btn-amarillo:disabled {
-  background-color: #E2D3B8;
-  color: #8C7B65;
+  background-color: #e2d3b8;
+  color: #8c7b65;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-
 /* Enlaces generales */
-.forgot-link, .register-link {
+.forgot-link,
+.register-link {
   font-family: 'Poppins', sans-serif;
-  color: var(--verde-oscuro); /* Asignamos el verde oscuro para que los enlaces destaquen bien sobre el fondo crema */
+  color: var(--verde-oscuro);
   text-decoration: none;
   cursor: pointer;
 }
 
-.forgot-link:hover, .register-link:hover {
+.forgot-link:hover,
+.register-link:hover {
   text-decoration: underline;
 }
 
@@ -150,20 +148,20 @@ html, body {
   text-align: left;
 }
 
-/* ===== Páginas con barra de navegación (inicio, infusiones, tés...) ===== */
+/* Páginas con barra de navegación */
 .page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: calc(100vh - var(--navbar-height)); /* resta la barra para que no haya scroll de más */
+  min-height: calc(100vh - var(--navbar-height));
   padding: 30px 20px;
-  box-sizing: border-box;
+
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
 
-  /* Mismo fondo de tazas que el perfil */
-  background-color: var(--verde-base);
+  /* Fondo verde claro común a todas las páginas */
+  background-color: var(--verde-claro);
   background-image: url('/images/taza.svg');
   background-blend-mode: color-dodge;
   background-repeat: space;
@@ -188,5 +186,4 @@ html, body {
   padding: 30px;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
 }
