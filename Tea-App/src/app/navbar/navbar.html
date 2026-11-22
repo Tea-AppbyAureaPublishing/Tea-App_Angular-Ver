@@ -1,26 +1,38 @@
 <header class="navbar">
   <div class="brand">
-    <img src="/images/favicon1.svg" alt="" class="brand-logo">
+    <img class="logo" src="/images/favicon.svg" alt="Logo Tea-App">
     <span class="brand-title">Tea-App</span>
   </div>
-    <nav class="nav-links">
-    <a routerLink="/inicio" class="nav-item">
-      <img src="/images/home.svg" alt="" class="nav-icon">
+
+  <nav class="nav-links">
+
+    <!-- Única burbuja compartida -->
+    <span class="nav-indicator"></span>
+
+    <a class="nav-item" routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <span class="nav-icon-container">
+        <img class="nav-icon" src="/images/home.svg" alt="">
+      </span>
       <span class="nav-label">Inicio</span>
     </a>
 
-    <a routerLink="/infusiones" class="nav-item">
-      <img src="/images/infusions.svg" alt="" class="nav-icon">
+    <a class="nav-item" routerLink="/infusiones" routerLinkActive="active">
+      <span class="nav-icon-container">
+        <img class="nav-icon" src="/images/infusions.svg" alt="">
+      </span>
       <span class="nav-label">Infusiones</span>
     </a>
 
-    <a routerLink="/tes" class="nav-item">
-      <img src="/images/tea-leaves.svg" alt="" class="nav-icon">
+    <a class="nav-item" routerLink="/tes" routerLinkActive="active">
+      <span class="nav-icon-container">
+        <img class="nav-icon" src="/images/tea-leaves.svg" alt="">
+      </span>
       <span class="nav-label">Tés</span>
     </a>
 
-    <a routerLink="/perfil" class="nav-profile" aria-label="Mi perfil">
-        <img src="/images/glasses.svg" alt="" class="profile-img">
+    <a class="nav-profile" routerLink="/perfil">
+      <img class="profile-img" src="/images/glasses.svg" alt="Perfil">
     </a>
+
   </nav>
 </header>
