@@ -7,7 +7,7 @@ import { Infusiones } from './infusiones/infusiones';
 import { Tes } from './tes/tes';
 import { Perfil } from './perfil/perfil';
 import { Favoritos } from './perfil/favoritos/favoritos';
-import { Pedidos } from './perfil/pedidos/pedidos';
+// import { Pedidos } from './perfil/pedidos/pedidos';
 import { Propios } from './perfil/propios/propios';
 
 export const routes: Routes = [
@@ -31,7 +31,7 @@ export const routes: Routes = [
         children: [
           { path: '', redirectTo: 'favoritos', pathMatch: 'full' },
           { path: 'favoritos', component: Favoritos },
-          { path: 'pedidos', component: Pedidos },
+          // { path: 'pedidos', component: Pedidos },
           { path: 'propios', component: Propios }
         ]
       }
