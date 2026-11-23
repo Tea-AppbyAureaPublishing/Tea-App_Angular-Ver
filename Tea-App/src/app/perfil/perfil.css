@@ -12,7 +12,7 @@
 
   
   /* 1. Tu color verde base oficial de fondo */
-  background-color: var(--verde-base);
+  background-color: var(--verde-claro);
 
   /* 2. 🪄 FUSIÓN DE COLOR DE FIGMA: La taza se coloca al frente y el color crema al 15% (rgba) se funde detrás */
   background-image: url('/images/taza.svg');
@@ -29,11 +29,15 @@
 }
 
 .perfil-container h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
   font-weight: 600;
-  text-align: center;
+  color: var(--amarillo-principal);
+
+  width: 100%;
+  max-width: 650px;   /* mismo ancho que .user-card y .tabs-container */
+  text-align: left;
+  margin: 0 0 24px 0; /* sin margin-left */
 }
 
 /* Tarjeta principal del usuario */
