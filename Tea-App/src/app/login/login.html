@@ -15,8 +15,8 @@
 
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-container">
         <div class="form-group">
-          <label>Usuario o Correo electrónico</label>
-          <input type="text" formControlName="identifier" placeholder="Ej: usuario o correo@ejemplo.com">
+          <label>Correo electrónico</label>
+          <input type="text" formControlName="identifier" placeholder="correo@ejemplo.com">
         </div>
 
         <div class="form-group">
@@ -24,9 +24,13 @@
           <input type="password" formControlName="password" placeholder="••••••••">
         </div>
 
+        @if (errorMessage()) {
+          <p class="error-text">{{ errorMessage() }}</p>
+        }
+
         <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 5px;">
-          <button type="submit" [disabled]="loginForm.invalid" class="btn-amarillo">
-            Entrar
+          <button type="submit" [disabled]="loginForm.invalid || loading()" class="btn-amarillo">
+            {{ loading() ? 'Entrando...' : 'Entrar' }}
           </button>
         </div>
       </form>
