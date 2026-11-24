@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -13,18 +15,25 @@ import { CommonModule } from '@angular/common';
 export class Login {
   loginForm: FormGroup;
   forgotForm: FormGroup;
-  
-  // Control de estados de pantalla: 'login' o 'forgot'
-  currentView: 'login' | 'forgot' = 'login'; 
-  
-  errorMessage: string = '';
-  successMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  // Control de estados de pantalla: 'login' o 'forgot'
+  currentView: 'login' | 'forgot' = 'login';
+
+  // La pantalla se actualiza sola cuando cambian
+  errorMessage = signal('');
+  loading = signal(false);
+
+  successMessage: string = ''
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private auth: Auth
+  ) {
     this.loginForm = this.fb.group({
       // Eliminamos la validación estricta de Email para permitir texto libre (usuario)
-      identifier: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     });
 
     this.forgotForm = this.fb.group({
@@ -33,22 +42,42 @@ export class Login {
   }
 
   onLogin() {
-    if (this.loginForm.valid) {
-      const { identifier, password } = this.loginForm.value;
-      console.log('Intentando entrar con:', identifier);
-      this.router.navigate(['/perfil']);
+  if (this.loginForm.invalid) return;
+
+  this.errorMessage.set('');
+  this.loading.set(true);
+
+  this.auth.login(this.loginForm.value).subscribe({
+    next: () => {
+      this.loading.set(false);
+      this.router.navigate(['perfil']);
+    },
+
+    error: (err: HttpErrorResponse) => {
+      this.loading.set(false);
+
+      if (err.status === 401) {
+        this.errorMessage.set('Correo o contraseña incorrectos');
+      } else if (err.status === 0) {
+        this.errorMessage.set('No se puede conectar con el servidor');
+      } else {
+        this.errorMessage.set(
+          err.error?.message ?? 'Ha ocurrido un error. Inténtalo de nuevo'
+        );
+      }
     }
-  }
+  });
+}
 
   // Simulación de envío de correo de restablecimiento
   onResetPassword() {
     if (this.forgotForm.valid) {
       const email = this.forgotForm.get('resetEmail')?.value;
       console.log(`Enviando correo de recuperación a: ${email}`);
-      
+
       this.successMessage = `Se ha enviado un enlace de recuperación a ${email}`;
-      this.errorMessage = '';
-      
+      this.errorMessage.set('');
+
       // Opcional: Volver al login automáticamente tras unos segundos
       setTimeout(() => {
         this.setView('login');
@@ -60,7 +89,7 @@ export class Login {
 
   setView(view: 'login' | 'forgot') {
     this.currentView = view;
-    this.errorMessage = '';
+    this.errorMessage.set('');
     this.successMessage = '';
   }
 }
