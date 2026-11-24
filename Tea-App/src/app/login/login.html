@@ -1,3 +1,4 @@
+
 <div class="login-container">
 
   <div class="welcome-header">
@@ -16,7 +17,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-container">
         <div class="form-group">
           <label>Correo electrónico</label>
-          <input type="text" formControlName="identifier" placeholder="correo@ejemplo.com">
+          <input type="email" formControlName="email" placeholder="correo@ejemplo.com">
         </div>
 
         <div class="form-group">
