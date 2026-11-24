@@ -185,7 +185,7 @@
 }
 
 .btn-logout {
-  background-color: #d9534f;
+  background-color: var(--verde-oscuro);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -198,7 +198,7 @@
 }
 
 .btn-logout:hover {
-  background-color: #c9302c;
+  background-color: var(--verde-cerrar-sesion); /* Verde más claro con transparencia */
 }
 
 /* Modales (Editar perfil y Confirmar cierre de sesión) */
