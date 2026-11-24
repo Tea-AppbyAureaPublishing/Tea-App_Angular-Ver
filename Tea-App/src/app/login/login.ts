@@ -42,29 +42,32 @@ export class Login {
   }
 
   onLogin() {
-    if (this.loginForm.valid) return;
+  if (this.loginForm.invalid) return;
 
-    this.errorMessage.set('');
-    this.loading.set(true);
+  this.errorMessage.set('');
+  this.loading.set(true);
 
-    this.auth.login(this.loginForm.value).subscribe({
-      next: () => {
-        this.loading.set(false);
-        this.router.navigate(['perfil']);
-      },
+  this.auth.login(this.loginForm.value).subscribe({
+    next: () => {
+      this.loading.set(false);
+      this.router.navigate(['perfil']);
+    },
 
-      error: (err: HttpErrorResponse) => {
-        this.loading.set(false);
-        if (err.status === 401) {
-          this.errorMessage.set('Correo o contraseña incorrectos');
-        } else if (err.status === 0) {
-          this.errorMessage.set('No se puede conectar con el servidor');
-        } else {
-          this.errorMessage.set(err.error?.message ?? 'Ha ocurrido un error. Inténtalo de nuevo');
-        }
+    error: (err: HttpErrorResponse) => {
+      this.loading.set(false);
+
+      if (err.status === 401) {
+        this.errorMessage.set('Correo o contraseña incorrectos');
+      } else if (err.status === 0) {
+        this.errorMessage.set('No se puede conectar con el servidor');
+      } else {
+        this.errorMessage.set(
+          err.error?.message ?? 'Ha ocurrido un error. Inténtalo de nuevo'
+        );
       }
-    })
-  }
+    }
+  });
+}
 
   // Simulación de envío de correo de restablecimiento
   onResetPassword() {
