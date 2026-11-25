@@ -1,0 +1,128 @@
+.infusiones-header {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+/* Sobrescribe solo el color y tamaño del h1 del CSS común para hacerlo amarillo como en la imagen */
+.infusiones-header h1 {
+  color: var(--amarillo-principal);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+
+.toolbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1in;
+  flex-wrap: wrap;
+}
+
+
+/* Cápsula verde oscuro con Filtros y Ordenados */
+.pill-controls {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--verde-base);
+  border-radius: 999px;
+  padding: 6px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pill-btn {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  color: var(--amarillo-principal);
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pill-btn:hover {
+  background-color: rgba(224, 187, 83, 0.15);
+}
+
+
+/* Buscador en crema */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 420px;
+  max-width: 100%;
+  background-color: var(--crema-tarjeta);
+  border-radius: 999px;
+  padding: 6px 18px 6px 22px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  color: var(--verde-oscuro);
+  font-size: 1.05rem;
+  padding: 8px 34px 8px 0;
+}
+
+.search-input::placeholder {
+  color: #8c8f86;
+}
+
+.search-btn {
+  position: absolute;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.search-btn:hover {
+  background-color: rgba(42, 50, 37, 0.08);
+}
+
+.search-btn:active {
+  transform: scale(0.94);
+}
+
+.search-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pill-controls {
+    align-self: flex-start;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+}
