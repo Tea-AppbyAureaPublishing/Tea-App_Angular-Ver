@@ -1,6 +1,24 @@
 <div class="page-container">
-  <h1>Infusiones</h1>
-  <div class="page-card">
-    <p>Aquí irán las infusiones.</p>
-  </div>
+  <header class="infusiones-header">
+    <h1>Listado de infusiones</h1>
+
+    <div class="toolbar">
+      <div class="pill-controls">
+        <button type="button" class="pill-btn" (click)="toggleFiltros()">Filtros</button>
+        <button type="button" class="pill-btn" (click)="toggleOrden()">Ordenados</button>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Busca por nombre"
+          [(ngModel)]="searchTerm"
+        />
+        <button type="button" class="search-btn" (click)="searchInfusiones()">
+          <img src="/images/search.svg" alt="" class="search-icon" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  </header>
 </div>
