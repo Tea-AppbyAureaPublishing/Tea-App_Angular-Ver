@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router, Routes } from '@angular/router';
+import { Auth } from './services/auth';
 import { Login } from './login/login';
 import { Registro } from './registro/registro';
 import { Layout } from './layout/layout';
@@ -10,8 +12,16 @@ import { Favoritos } from './perfil/favoritos/favoritos';
 // import { Pedidos } from './perfil/pedidos/pedidos';
 import { Propios } from './perfil/propios/propios';
 
+//Sirve para la ruta del perfil si esta logueado o no,
+//  si no esta logueado lo redirige al login
+const authGuard: CanActivateFn = () => {
+  const auth = inject(Auth);
+  const router = inject(Router);
+  return auth.isLoggedIn() ? true : router.createUrlTree(['/login']);
+};
+
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 
   // Páginas SIN barra de navegación
   { path: 'login', component: Login },
@@ -22,12 +32,13 @@ export const routes: Routes = [
     path: '',
     component: Layout,
     children: [
-      { path: 'inicio', component: Inicio },
+      { path: 'inicio', component: Inicio},
       { path: 'infusiones', component: Infusiones },
       { path: 'tes', component: Tes },
       {
         path: 'perfil',
         component: Perfil,
+        canActivate: [authGuard],
         children: [
           { path: '', redirectTo: 'favoritos', pathMatch: 'full' },
           { path: 'favoritos', component: Favoritos },
@@ -38,5 +49,5 @@ export const routes: Routes = [
     ]
   },
 
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'inicio' }
 ];
