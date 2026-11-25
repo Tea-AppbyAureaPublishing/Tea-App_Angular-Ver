@@ -83,6 +83,12 @@
   opacity: 1;
 }
 
+/* Perfil */
+.nav-links:has(.nav-profile.active) .nav-indicator {
+  left: 387px; 
+  opacity: 1;
+}
+
 /* Enlaces */
 
 .nav-item {
