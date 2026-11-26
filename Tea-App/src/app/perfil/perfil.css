@@ -114,7 +114,16 @@
 }
 
 .btn-edit:hover {
-  background-color: var(--verde-bosque);
+  background-color: var(--verde-cerrar-sesion);
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 20px;
+  gap: 20px;
 }
 
 /* Pestañas de navegación interna */
@@ -182,23 +191,6 @@
   max-width: 650px;
   display: flex;
   justify-content: flex-end;
-}
-
-.btn-logout {
-  background-color: var(--verde-oscuro);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.btn-logout:hover {
-  background-color: var(--verde-cerrar-sesion); /* Verde más claro con transparencia */
 }
 
 /* Modales (Editar perfil y Confirmar cierre de sesión) */

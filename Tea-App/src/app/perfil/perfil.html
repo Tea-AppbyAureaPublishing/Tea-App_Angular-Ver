@@ -9,7 +9,10 @@
     <div class="user-info">
       <p class="user-name">{{ user.nombre }}</p>
       <p class="user-email">{{ user.email }}</p>
-      <button class="btn-edit" (click)="openEditModal()">Editar perfil</button>
+      <div class="button-container">
+        <button class="btn-edit" (click)="openEditModal()">Editar perfil</button>
+        <button class="btn-edit" (click)="openLogoutModal()">Cerrar sesión</button>
+      </div>
     </div>
   </div>
 
@@ -23,10 +26,6 @@
   <!-- Aquí aparece el contenido de la pestaña elegida -->
   <router-outlet></router-outlet>
 
-  <!-- Botón de Cerrar Sesión -->
-  <div class="logout-container">
-    <button class="btn-logout" (click)="openLogoutModal()">Cerrar sesión</button>
-  </div>
 </div>
 
 <!-- MODAL: Editar Perfil (TEA-76) -->
