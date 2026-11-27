@@ -1,3 +1,4 @@
+Ejemplo de Páginas para Tés
 <div class="page-container">
   <header class="infusiones-header">
     <h1>Listado de infusiones</h1>
@@ -21,4 +22,38 @@
       </div>
     </div>
   </header>
+
+  <div id="card-container" class="card-container">
+    @if (cargando) {
+      @for (item of infusiones; track item.id) {
+        <article class="infusion-card">
+          <div class="card-body">
+
+            <h3 class="card-title">{{ item.nombre }}</h3>
+            <div class="card-ornament" aria-hidden="true"></div>
+            <div class="badge-container">
+              <span class="tipo-badge">Tipo: {{ item.tipo }}</span>
+            </div>
+            <div class="card-details">
+              <p><strong>Descripción:</strong> {{ item.descripcion }}</p>
+              <p><strong>Beneficios en Salud:</strong> {{ item.beneficios }}</p>
+              <p><strong>Nota de Cata:</strong> {{ item.notaDeCata }}</p>
+            </div>
+            <div class="prep-box">
+              <div class="prep-info">
+                <span class="prep-heading">Preparación</span>
+                <ul>
+                  <li><strong>Temperatura:</strong> {{ item.preparacion.temperatura }}</li>
+                  <li><strong>Tiempo:</strong> {{ item.preparacion.tiempo }}</li>
+                  <li><strong>Cantidad:</strong> {{ item.preparacion.cantidad }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      } @empty {
+        <p>No se encontraron infusiones.</p>
+      }
+    }
+  </div>
 </div>
