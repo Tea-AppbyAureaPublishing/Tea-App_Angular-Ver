@@ -8,14 +8,13 @@
   margin-bottom: 28px;
 }
 
-/* Sobrescribe solo el color y tamaño del h1 del CSS común para hacerlo amarillo como en la imagen */
+/* Sobrescribe solo el color y tamaño del h1 del CSS común */
 .infusiones-header h1 {
   color: var(--amarillo-principal);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
   margin: 0;
 }
-
 
 .toolbar {
   width: 100%;
@@ -25,7 +24,6 @@
   gap: 1in;
   flex-wrap: wrap;
 }
-
 
 /* Cápsula verde oscuro con Filtros y Ordenados */
 .pill-controls {
@@ -53,7 +51,6 @@
 .pill-btn:hover {
   background-color: rgba(224, 187, 83, 0.15);
 }
-
 
 /* Buscador en crema */
 .search-box {
@@ -112,6 +109,188 @@
   display: block;
 }
 
+/* =========================================
+   CUADRÍCULA Y DISEÑO DE TARJETAS (3 POR FILA)
+   ========================================= */
+
+.card-container {
+  width: 100%;
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 10px 0 40px;
+}
+
+.infusion-card {
+  background-color: var(--crema-tarjeta);
+  color: var(--verde-oscuro); /* Sobrescribe el color blanco de .page-container */
+  border-radius: 20px;
+  padding: 22px 18px 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Título dorado usando tu fuente Playfair Display */
+.card-title {
+  color: var(--amarillo-principal);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  text-align: left;
+  margin: 0 0 10px 0;
+}
+
+/* Ornamento divisor */
+.card-ornament {
+  width: 100%;
+  height: 28px; /* Altura fija: no empuja ni rompe nada */
+  margin: 4px 0 14px 0;
+  background-color: var(--verde-oscuro); /* Cambia aquí al color que quieras */
+
+  -webkit-mask-image: url('/images/ornaments.svg');
+  mask-image: url('/images/ornaments.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% auto; /* Se estira al 100% del ancho de la tarjeta sin espacio vacío */
+  mask-size: 100% auto;
+}
+
+/* Píldora de Tipo en verde bosque */
+.badge-container {
+  margin-bottom: 14px;
+}
+
+.tipo-badge {
+  display: inline-block;
+  background-color: var(--verde-bosque);
+  color: #ffffff;
+  font-size: 0.70rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* Detalles de texto */
+.card-details {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #000000;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.card-details p {
+  margin: 0 0 8px 0;
+}
+
+/* Caja inferior de Preparación en verde claro */
+.prep-box {
+  background-color: var(--verde-claro);
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.prep-heading {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  opacity: 0.95;
+}
+
+.prep-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.prep-info li::before {
+  content: "*";
+  margin-right: 3px;
+  font-weight: bold;
+}
+
+/* Botones de acción (Estrella y Cesta) */
+.prep-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.btn-star svg {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke: var(--verde-oscuro);
+  stroke-width: 1.8;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.btn-star svg.active {
+  fill: var(--amarillo-medio);
+  stroke: var(--amarillo-medio);
+}
+
+.btn-basket {
+  background-color: var(--amarillo-medio);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-basket:hover {
+  background-color: var(--amarillo-oscuro);
+  transform: scale(1.08);
+}
+
+.btn-basket svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--verde-oscuro);
+  stroke-width: 2;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 720px) {
   .toolbar {
     flex-direction: column;
@@ -124,5 +303,9 @@
 
   .search-box {
     max-width: none;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
   }
 }
